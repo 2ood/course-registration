@@ -4,10 +4,76 @@
     <meta charset="utf-8">
     <title>Course Registration</title>
     <link rel="stylesheet" href="style.css">
-    <script src="script.js" defer></script>
+    <script type="module" src="node_modules/xlsx/xlsx.js" defer></script>
+    <script type="module" src="script.js" defer></script>
   </head>
   <body>
     <main id="main">
+      <selectgroup>
+        <ul>
+          <li class="nodegroup1">인간생물학
+            <ul>
+              <li class="end" id="g1g1">option 1</li>
+            </ul>
+          </li>
+          <li class="nodegroup2">생물학
+            <ul>
+              <li class="end" id="g2g1">option 1</li>
+              <li class="end" id="g2g2">option 2</li>
+            </ul>
+          </li>
+          <li class="nodegroup3">학문적 글쓰기
+            <ul>
+              <li class="end" id="g3g1">option 1</li>
+              <li class="end" id="g3g2">option 2</li>
+              <li class="end" id="g3g3">option 3</li>
+            </ul>
+          </li>
+          <li class="nodegroup4">영어2
+            <ul>
+              <li class="end" id="g4g1">option 1</li>
+              <li class="end" id="g4g2">option 2</li>
+              <li class="end" id="g4g3">option 3</li>
+              <li class="end" id="g4g4">option 4</li>
+              <li class="end" id="g4g5">option 5</li>
+              <li class="end" id="g4g6">option 6</li>
+            </ul>
+          </li>
+          <li class="nodegroup5"> 다변수 해석학
+            <ul>
+              <li class="end" id="g5g1">option 1</li>
+              <li class="end" id="g5g2">option 2</li>
+              <li class="end" id="g5g3">option 3</li>
+              <li class="end" id="g5g4">option 4</li>
+              <li class="end" id="g5g5">option 5</li>
+              <li class="end" id="g5g6">option 6</li>
+            </ul>
+          </li>
+          <li class="nodegroup6"> 미분방정식
+            <ul>
+              <li class="end" id="g6g1">option 1</li>
+              <li class="end" id="g6g2">option 2</li>
+            </ul>
+          </li>
+          <li class="nodegroup7"> 선형대수
+            <ul>
+              <li class="end" id="g7g1">option 1</li>
+              <li class="end" id="g7g2">option 2</li>
+              <li class="end" id="g7g3">option 3</li>
+            </ul>
+          </li>
+          <li class="nodegroup8"> 생물학 실험
+            <ul>
+              <li class="end" id="g8g1">option 1</li>
+              <li class="end" id="g8g2">option 2</li>
+              <li class="end" id="g8g3">option 3</li>
+              <li class="end" id="g8g4">option 4</li>
+            </ul>
+          </li>
+
+
+        </ul>
+      </selectgroup>
       <days>
         <day></day>
         <day id="sun">S</day>
@@ -33,9 +99,73 @@
         <time class="s21 e22">21</time>
         <time class="s22 e23">22</time>
 
-        <course class="mon s10 e12">정치경제학</course>
-        <course class="wed s12 e14">사회심리학</course>
-        <course class="sat s10 e17">공강</course>
+        <course class="mon s13 e14 g1g1 g2">인간 생물학</course>
+        <course class="wed s13 e14 g1g1 g2">인간 생물학</course>
+        <course class="tue s13 e14 g2g1 g2">생물학</course>
+        <course class="thu s13 e14 g2g1 g2">생물학</course>
+        <course class="tue s10 e12 g2g2 g2">생물학</course>
+        <course class="thu s10 e12 g2g2 g2">생물학</course>
+
+        <course class="mon s10 e12 g3g1 g2">학문적 글쓰기</course>
+        <course class="wed s10 e12 g3g1 g2">학문적 글쓰기</course>
+        <course class="mon s14 e16 g3g2 g2">학문적 글쓰기</course>
+        <course class="wed s14 e16 g3g2 g2">학문적 글쓰기</course>
+        <course class="mon s16 e17 g3g3 g2">학문적 글쓰기</course>
+        <course class="wed s16 e17 g3g3 g2">학문적 글쓰기</course>
+
+        <course class="mon s13 e14 g4g1 g4">영어 2</course>
+        <course class="wed s13 e14 g4g1 g4">영어 2</course>
+        <course class="mon s14 e16 g4g2 g4">영어 2</course>
+        <course class="wed s14 e16 g4g2 g4">영어 2</course>
+        <course class="mon s10 e12 g4g3 g4">영어 2</course>
+        <course class="wed s10 e12 g4g3 g4">영어 2</course>
+        <course class="tue s13 e14 g4g4 g4">영어 2</course>
+        <course class="thu s13 e14 g4g4 g4">영어 2</course>
+        <course class="tue s14 e16 g4g5 g4">영어 2</course>
+        <course class="thu s14 e16 g4g5 g4">영어 2</course>
+        <course class="tue s09 e10 g4g6 g4">영어 2</course>
+        <course class="thu s09 e10 g4g6 g4">영어 2</course>
+
+        <course class="mon s18 e19 g5g1 g5">다변수 해석학</course>
+        <course class="tue s09 e10 g5g1 g5">다변수 해석학</course>
+        <course class="thu s09 e10 g5g1 g5">다변수 해석학</course>
+        <course class="mon s18 e19 g5g2 g5">다변수 해석학</course>
+        <course class="tue s10 e12 g5g2 g5">다변수 해석학</course>
+        <course class="thu s10 e12 g5g2 g5">다변수 해석학</course>
+        <course class="tue s13 e14 g5g3 g5">다변수 해석학</course>
+        <course class="tue s17 e18 g5g3 g5">다변수 해석학</course>
+        <course class="thu s13 e14 g5g3 g5">다변수 해석학</course>
+        <course class="mon s09 e10 g5g4 g5">다변수 해석학</course>
+        <course class="tue s18 e19 g5g4 g5">다변수 해석학</course>
+        <course class="wed s09 e10 g5g4 g5">다변수 해석학</course>
+        <course class="mon s13 e14 g5g5 g5">다변수 해석학</course>
+        <course class="wed s13 e14 g5g5 g5">다변수 해석학</course>
+        <course class="wed s18 e19 g5g5 g5">다변수 해석학</course>
+        <course class="mon s14 e16 g5g6 g5">다변수 해석학</course>
+        <course class="wed s14 e16 g5g6 g5">다변수 해석학</course>
+        <course class="wed s18 e19 g5g6 g5">다변수 해석학</course>
+
+        <course class="mon s18 e19 g6g1 g6">미분 방정식</course>
+        <course class="wed s09 e10 g6g1 g6">미분 방정식</course>
+        <course class="thu s17 e18 g6g1 g6">미분 방정식</course>
+        <course class="mon s10 e12 g6g2 g6">미분 방정식</course>
+        <course class="wed s10 e12 g6g2 g6">미분 방정식</course>
+        <course class="thu s18 e19 g6g2 g6">미분 방정식</course>
+
+        <course class="mon s09 e10 g7g1 g7">선형 대수</course>
+        <course class="wed s09 e10 g7g1 g7">선형 대수</course>
+        <course class="fri s10 e11 g7g1 g7">선형 대수</course>
+        <course class="tue s10 e12 g7g2 g7">선형 대수</course>
+        <course class="thu s10 e12 g7g2 g7">선형 대수</course>
+        <course class="fri s11 e12 g7g2 g7">선형 대수</course>
+        <course class="tue s10 e12 g7g3 g7">선형 대수</course>
+        <course class="wed s10 e12 g7g3 g7">선형 대수</course>
+        <course class="fri s13 e14 g7g3 g7">선형 대수</course>
+
+        <course class="tue s16 e18 g8g1 g8">생물학실험</course>
+        <course class="wed s16 e18 g8g2 g8">생물학실험</course>
+        <course class="thu s10 e12 g8g3 g8">생물학실험</course>
+        <course class="thu s16 e18 g8g4 g8">생물학실험</course>
       </timetable>
     </main>
 

@@ -1,5 +1,25 @@
 :root {
+  /* //colorset1
+  --color1 : #eddcd2;
+  --color2 : #fff1e6;
+  --color3 : #fde2e4;
+  --color4 : #fad2e1;
+  --color5 : #c5dedd;
+  --color6 : #dbe7e4;
+  --color7 : #f0efeb;
+  --color8 : #d6e2e9;
+  --color9 : #bcd4e6;
+  */
+
   --color1 : coral;
+  --color2 : coral;
+  --color3 : coral;
+  --color4 : coral;
+  --color5 : coral;
+  --color6 : coral;
+  --color7 : coral;
+  --color8 : coral;
+  --color9 : coral;
 }
 
 body {
@@ -15,16 +35,44 @@ main {
   margin : auto auto;
 }
 
+selectgroup {
+  position : absolute;
+  top : 0;
+  bottom : 0;
+  left : 0;
+  width : 20vw;
+  background-color : beige;
+}
+
+selectgroup ul {
+  list-style : none;
+  padding-inline-start : 10px;
+  position : relative;
+  margin-bottom : 30px;
+}
+
+selectgroup li.end.selected::after {
+  content : ' ';
+  display : inline-block;
+  position : absolute;
+  left : 0;
+  margin-top : 10px;
+  width : 4px;
+  height : 4px;
+  border-radius : 4px;
+  background-color : blue;
+}
+
 timetable {
   display : grid;
   justify-content: center;
-  grid-template : repeat(15, 9vh) / repeat(8, 8vw);
+  grid-template : repeat(15, 6vh) / repeat(8, 5vw);
 }
 
 days {
   display : grid;
   justify-content: center;
-  grid-template : 9vh / repeat(8, 8vw);
+  grid-template : 6vh / repeat(8, 5vw);
 }
 
 day {
@@ -48,9 +96,25 @@ day#sat {color : blue;}
 
 course {
   filter : drop-shadow(0 0 15px #00000022);
-  background-color : var(--color1);
-  border-radius : 5px;
   padding : 10%;
+  opacity : .4;
+  font-size : 12px;
+  word-wrap : break-word;
+}
+
+course.g1 {background-color : var(--color1);}
+course.g2 {background-color : var(--color2);}
+course.g3 {background-color : var(--color3);}
+course.g4 {background-color : var(--color4);}
+course.g5 {background-color : var(--color5);}
+course.g6 {background-color : var(--color6);}
+course.g7 {background-color : var(--color7);}
+course.g8 {background-color : var(--color8);}
+course.g9 {background-color : var(--color9);}
+
+
+course:not(.selected) {
+  opacity : 0;
 }
 
 course.sun{grid-column : 2 / 3;}
