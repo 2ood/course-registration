@@ -44,7 +44,7 @@ body {
 
 message#copied {
   display : inline-flex;
-  position : absolute;
+  position : fixed;
   bottom : 30px;
   left : 30px;
   justify-content: center;
@@ -113,13 +113,13 @@ selectgroup li.end.selected::after {
 timetable {
   display : grid;
   justify-content: center;
-  grid-template : repeat(15, 6vh) / repeat(8, 5vw);
+  grid-template : repeat(30, 4vh) / repeat(8, 5vw);
 }
 
 days {
   display : grid;
   justify-content: center;
-  grid-template : 6vh / repeat(8, 5vw);
+  grid-template : 4vh / repeat(8, 5vw);
 }
 
 day {
@@ -135,6 +135,10 @@ time {
   display : inline-flex;
   justify-content: flex-start;
   align-items: flex-start;
+  font-size : 12px;
+}
+
+time:nth-of-type(2n-1){
   border-top : 1px solid black;
 }
 
@@ -152,7 +156,7 @@ course {
 }
 
 #credit {
-  position : absolute;
+  position : fixed;
   display : inline-block;
   bottom : 30px;
   right : 30px;
@@ -189,38 +193,64 @@ course.hovering {
   background-color : skyblue;
 }
 
-course.sun{grid-column : 2 / 3;}
-course.mon{grid-column : 3 / 4;}
-course.tue{grid-column : 4 / 5;}
-course.wed{grid-column : 5 / 6;}
-course.thu{grid-column : 6 / 7;}
-course.fri{grid-column : 7 / 8;}
-course.sat{grid-column : 8 / 9;}
+*[date="sun"]{grid-column : 2 / 3;}
+*[date="mon"]{grid-column : 3 / 4;}
+*[date="tue"]{grid-column : 4 / 5;}
+*[date="wed"]{grid-column : 5 / 6;}
+*[date="thu"]{grid-column : 6 / 7;}
+*[date="fri"]{grid-column : 7 / 8;}
+*[date="sat"]{grid-column : 8 / 9;}
 
-.s10{grid-row-start : 1;}
-.s11{grid-row-start : 2;}
-.s12{grid-row-start : 3;}
-.s13{grid-row-start : 4;}
-.s14{grid-row-start : 5;}
-.s15{grid-row-start : 6;}
-.s16{grid-row-start : 7;}
-.s17{grid-row-start : 8;}
-.s18{grid-row-start : 9;}
-.s19{grid-row-start : 10;}
-.s20{grid-row-start : 11;}
-.s21{grid-row-start : 12;}
-.s22{grid-row-start : 13;}
+*[start="0900"]{grid-row-start:1}
+*[start="0930"]{grid-row-start:2}
+*[start="1000"]{grid-row-start:3}
+*[start="1030"]{grid-row-start:4}
+*[start="1100"]{grid-row-start:5}
+*[start="1130"]{grid-row-start:6}
+*[start="1200"]{grid-row-start:7}
+*[start="1230"]{grid-row-start:8}
+*[start="1300"]{grid-row-start:9}
+*[start="1330"]{grid-row-start:10}
+*[start="1400"]{grid-row-start:11}
+*[start="1430"]{grid-row-start:12}
+*[start="1500"]{grid-row-start:13}
+*[start="1530"]{grid-row-start:14}
+*[start="1600"]{grid-row-start:15}
+*[start="1630"]{grid-row-start:16}
+*[start="1700"]{grid-row-start:17}
+*[start="1730"]{grid-row-start:18}
+*[start="1800"]{grid-row-start:19}
+*[start="1830"]{grid-row-start:20}
+*[start="1900"]{grid-row-start:21}
+*[start="1930"]{grid-row-start:22}
+*[start="2000"]{grid-row-start:23}
+*[start="2030"]{grid-row-start:24}
+*[start="2100"]{grid-row-start:25}
+*[start="2130"]{grid-row-start:26}
 
-.e10{grid-row-end : 1;}
-.e11{grid-row-end : 2;}
-.e12{grid-row-end : 3;}
-.e13{grid-row-end : 4;}
-.e14{grid-row-end : 5;}
-.e15{grid-row-end : 6;}
-.e16{grid-row-end : 7;}
-.e17{grid-row-end : 8;}
-.e18{grid-row-end : 9;}
-.e19{grid-row-end : 10;}
-.e20{grid-row-end : 11;}
-.e21{grid-row-end : 12;}
-.e22{grid-row-end : 13;}
+*[end="0900"]{grid-row-end:1}
+*[end="0930"]{grid-row-end:2}
+*[end="1000"]{grid-row-end:3}
+*[end="1030"]{grid-row-end:4}
+*[end="1100"]{grid-row-end:5}
+*[end="1130"]{grid-row-end:6}
+*[end="1200"]{grid-row-end:7}
+*[end="1230"]{grid-row-end:8}
+*[end="1300"]{grid-row-end:9}
+*[end="1330"]{grid-row-end:10}
+*[end="1400"]{grid-row-end:11}
+*[end="1430"]{grid-row-end:12}
+*[end="1500"]{grid-row-end:13}
+*[end="1530"]{grid-row-end:14}
+*[end="1600"]{grid-row-end:15}
+*[end="1630"]{grid-row-end:16}
+*[end="1700"]{grid-row-end:17}
+*[end="1730"]{grid-row-end:18}
+*[end="1800"]{grid-row-end:19}
+*[end="1830"]{grid-row-end:20}
+*[end="1900"]{grid-row-end:21}
+*[end="1930"]{grid-row-end:22}
+*[end="2000"]{grid-row-end:23}
+*[end="2030"]{grid-row-end:24}
+*[end="2100"]{grid-row-end:25}
+*[end="2130"]{grid-row-end:26}
