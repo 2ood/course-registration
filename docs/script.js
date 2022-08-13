@@ -97,6 +97,12 @@ function addEventListeners(){
         document.getElementById("copied").classList.remove("show");
       },300);
     });
+    course.addEventListener("dblclick",function(evt){
+      let courseid = evt.srcElement.getAttribute("courseid");
+      let course_li = document.getElementById(courseid);
+
+      course_li.click();
+    });
   });
 }
 
