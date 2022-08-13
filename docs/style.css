@@ -20,6 +20,21 @@
   --color7 : coral;
   --color8 : coral;
   --color9 : coral;
+  --color10 : coral;
+  --color11 : coral;
+  --color12 : coral;
+  --color13 : coral;
+  --color14 : coral;
+  --color15 : coral;
+  --color16 : coral;
+  --color17 : coral;
+  --color18 : coral;
+
+}
+* {
+  margin : 0;
+  padding : 0;
+  box-sizing: border-box;
 }
 
 body {
@@ -34,21 +49,36 @@ main {
   min-width : 100%;
   margin : auto auto;
 }
-
 selectgroup {
   position : absolute;
   top : 0;
   bottom : 0;
-  left : 0;
   width : 20vw;
   background-color : beige;
+  padding : 20px;
+}
+
+selectgroup.mandatory {
+  left : 0;
+}
+
+selectgroup.selective {
+  right : 0;
 }
 
 selectgroup ul {
   list-style : none;
   padding-inline-start : 10px;
   position : relative;
-  margin-bottom : 30px;
+}
+
+selectgroup > ul {
+  display : inline-grid;
+  grid-template : 1fr / 1fr 1fr;
+}
+
+selectgroup > ul > li {
+  margin : 0 30px 30px 0;
 }
 
 selectgroup li.end.selected::after {
@@ -57,8 +87,8 @@ selectgroup li.end.selected::after {
   position : absolute;
   left : 0;
   margin-top : 10px;
-  width : 4px;
-  height : 4px;
+  width : 6px;
+  height : 6px;
   border-radius : 4px;
   background-color : blue;
 }
@@ -100,6 +130,15 @@ course {
   opacity : .4;
   font-size : 12px;
   word-wrap : break-word;
+  border : 1px black solid;
+  z-index : 1;
+}
+
+#credit {
+  position : absolute;
+  display : inline-block;
+  bottom : 30px;
+  right : 30px;
 }
 
 course.g1 {background-color : var(--color1);}
@@ -111,10 +150,26 @@ course.g6 {background-color : var(--color6);}
 course.g7 {background-color : var(--color7);}
 course.g8 {background-color : var(--color8);}
 course.g9 {background-color : var(--color9);}
+course.g10 {background-color : var(--color10);}
+course.g11 {background-color : var(--color11);}
+course.g12 {background-color : var(--color12);}
+course.g13 {background-color : var(--color13);}
+course.g14 {background-color : var(--color14);}
+course.g15 {background-color : var(--color15);}
+course.g16 {background-color : var(--color16);}
+course.g17 {background-color : var(--color17);}
+course.g18 {background-color : var(--color18);}
+course.g19 {background-color : var(--color19);}
 
 
 course:not(.selected) {
   opacity : 0;
+  z-index : 0;
+}
+
+course.hovering {
+  opacity : .3;
+  background-color : skyblue;
 }
 
 course.sun{grid-column : 2 / 3;}

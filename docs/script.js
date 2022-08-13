@@ -30,20 +30,70 @@ import * as xlsx from "./node_modules/xlsx/xlsx.mjs";
 let courses = [];
 
 window.addEventListener("load",function(){
+  addEventListeners();
+  loadSessionStorage();
+});
+
+function loadSessionStorage(){
+  let keys = Object.keys(window.localStorage);
+  keys.forEach((key)=>{
+    const target_li = document.querySelector(`li[coursenum=${key}]`);
+    target_li.click();
+  });
+}
+
+function addEventListeners(){
   const groups = document.querySelectorAll("selectgroup li.end");
   groups.forEach(function(group_li){
+    group_li.innerHTML = group_li.getAttribute("coursenum");
     group_li.addEventListener("click",(evt)=>{
-      evt.srcElement.classList.toggle("selected");
-      const target_class = evt.srcElement.id;
-      const targets = document.querySelectorAll(`course.${target_class}`);
+      const src= evt.srcElement;
+      src.classList.toggle("selected");
+      const target_class = src.id;
+      const targets = document.querySelectorAll(`course[courseid='${target_class}']`);
 
-      console.log(targets);
       targets.forEach(function(target){
-        target.classList.toggle("selected");
+        if(target.classList.contains("selected")){
+          target.classList.remove("selected");
+          window.localStorage.removeItem(src.getAttribute("coursenum"));
+        } else {
+          target.classList.add("selected");
+          window.localStorage.setItem(src.getAttribute("coursenum"),"true");
+        }
+
+      });
+      calculateCredit();
+    });
+    group_li.addEventListener("mouseenter",(evt)=>{
+      const target_class = evt.srcElement.id;
+      const targets = document.querySelectorAll(`course[courseid='${target_class}']`);
+
+      targets.forEach(function(target){
+        target.classList.add("hovering");
+      });
+    });
+    group_li.addEventListener("mouseleave",(evt)=>{
+      const target_class = evt.srcElement.id;
+      const targets = document.querySelectorAll(`course[courseid='${target_class}']`);
+
+      targets.forEach(function(target){
+        target.classList.remove("hovering");
       });
     });
   });
-});
+
+  const courses =document.querySelectorAll("course");
+  courses.forEach(function(course){
+    course.addEventListener("click",function(evt){
+      let courseid = evt.srcElement.getAttribute("courseid");
+      let value = document.getElementById(courseid).getAttribute("coursenum");
+
+      navigator.clipboard.writeText(value);
+      /* Alert the copied text */
+      alert("Copied the text: " + value);
+    });
+  });
+}
 
 function readCourseFile(fileName){
   try{
@@ -57,5 +107,15 @@ function readCourseFile(fileName){
   }catch (err) {
     console.log(err);
   }
+}
 
+function calculateCredit(){
+  const num = document.getElementById("credit");
+  const selected = document.querySelectorAll("li.selected");
+
+  let sum=0;
+  selected.forEach((course)=>{
+      sum+=parseInt(course.getAttribute("credit"));
+  });
+  num.innerHTML = `credit : ${sum}`;
 }
