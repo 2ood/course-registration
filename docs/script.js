@@ -90,7 +90,12 @@ function addEventListeners(){
 
       navigator.clipboard.writeText(value);
       /* Alert the copied text */
-      alert("Copied the text: " + value);
+
+      document.getElementById("copied").classList.add("show");
+
+      setTimeout(()=>{
+        document.getElementById("copied").classList.remove("show");
+      },300);
     });
   });
 }

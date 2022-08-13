@@ -42,6 +42,25 @@ body {
   font-family : cursive;
 }
 
+message#copied {
+  z-index : -1000;
+  display : inline-flex;
+  position : absolute;
+  top : 0;
+  bottom : 0;
+  right : 0;
+  left : 0;
+  justify-content: center;
+  align-items: center;
+  font-size : 30px;
+  opacity : 0;
+}
+
+message#copied.show {
+  z-index : 1000;
+  opacity : 1;
+}
+
 main {
   position : relative;
   display : inline-block;
@@ -68,7 +87,6 @@ selectgroup.selective {
 
 selectgroup ul {
   list-style : none;
-  padding-inline-start : 10px;
   position : relative;
 }
 
@@ -81,12 +99,15 @@ selectgroup > ul > li {
   margin : 0 30px 30px 0;
 }
 
+selectgroup li.end.selected {
+  text-decoration : underline;
+}
 selectgroup li.end.selected::after {
   content : ' ';
   display : inline-block;
-  position : absolute;
-  left : 0;
-  margin-top : 10px;
+  position : relative;
+  right : -10px;
+  bottom : 3px;
   width : 6px;
   height : 6px;
   border-radius : 4px;
