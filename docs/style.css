@@ -57,6 +57,11 @@ message#copied.show {
   opacity : 1;
 }
 
+message#copied.error {
+  color : red;
+  opacity : 1;
+}
+
 main {
   position : relative;
   display : inline-block;
@@ -84,42 +89,74 @@ selectgroup.selective {
 selectgroup ul {
   list-style : none;
   position : relative;
+  margin-inline-start : 10px;
 }
 
 selectgroup > ul {
   display : inline-grid;
+  position : relative;
   grid-template : 1fr / 1fr 1fr;
+  width : 100%;
+  margin-inline-start : 0;
 }
 
 selectgroup > ul > li {
-  margin : 0 30px 30px 0;
+  margin-bottom : 30px;
+}
+
+selectroup li.end {
+  position : relative;
+  display : inline-block;
+  width : 100%;
+}
+selectgroup li.end::after{
+  display : none;
+  content : 'fix';
+  width : 50px;
+  height : 20px;
+}
+
+selectgroup li.end input {
+  display : none;
+}
+
+selectgroup li input.selected {
+  position : relative;
+  display : inline-block;
+  right : 0;
+  margin : auto;
+  margin-left : 5px;
 }
 
 selectgroup li.end.selected {
   text-decoration : underline;
 }
-selectgroup li.end.selected::after {
+selectgroup li.end.selected::before {
   content : ' ';
   display : inline-block;
   position : relative;
-  right : -10px;
-  bottom : 3px;
+  left : -10px;
+  bottom : 8px;
   width : 6px;
   height : 6px;
   border-radius : 4px;
   background-color : blue;
 }
 
+selectgroup li.end.fixed {
+  color : coral;
+}
+
 timetable {
   display : grid;
   justify-content: center;
-  grid-template : repeat(30, 4vh) / repeat(8, 5vw);
+  grid-template : repeat(25, 4vh) / repeat(8, 5vw);
 }
 
 days {
   display : grid;
   justify-content: center;
-  grid-template : 4vh / repeat(8, 5vw);
+  grid-template : 6vh / repeat(8, 5vw);
 }
 
 day {
@@ -191,6 +228,22 @@ course:not(.selected) {
 course.hovering {
   opacity : .3;
   background-color : skyblue;
+}
+
+#roulette {
+  position : fixed ;
+  bottom : 10px;
+  right: 21vw;
+  border : none;
+  background-color : #33333333;
+  width : 200px;
+  height: 50px;
+  padding : 10px;
+}
+
+#roulette:active {
+  background-color : #33333377;
+  color : white;
 }
 
 *[date="sun"]{grid-column : 2 / 3;}
